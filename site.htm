@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dubai Renewable Energy Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- React/ReactDOM 17 CDN -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!-- React Router DOM v5 CDN -->
+  <script src="https://unpkg.com/react-router-dom@5/umd/react-router-dom.min.js"></script>
+</head>
+<body class="bg-gradient-to-br from-amber-50 via-white to-sky-50 min-h-screen text-gray-800">
+  <div id="root"></div>
+  <script type="text/javascript">
+    const {
+      HashRouter, Switch, Route, Link, useHistory
+    } = window.ReactRouterDOM;
+
+    // HOME PAGE WITH BUTTONS
+    function Home() {
+      const sections = [
+        {
+          title: "The Problem with Old Energy",
+          path: "/old-energy-problems",
+          color: "from-red-500 to-orange-500",
+          bgColor: "bg-red-50",
+          description: "See why Dubai must shift from fossil fuels to renewables."
+        },
+        {
+          title: "The Physics of Solar Power",
+          path: "/solar-physics",
+          color: "from-yellow-500 to-amber-500",
+          bgColor: "bg-yellow-50",
+          description: "Discover how solar panels work and why Dubai is ideal for solar."
+        },
+        {
+          title: "Dubai's Success Stories",
+          path: "/success-stories",
+          color: "from-green-500 to-emerald-500",
+          bgColor: "bg-green-50",
+          description: "Read about projects, numbers, and UAE global recognition."
+        },
+        {
+          title: "Students & Schools Leading Change",
+          path: "/students-leading-change",
+          color: "from-blue-500 to-cyan-500",
+          bgColor: "bg-blue-50",
+          description: "Explore how students make an impact through eco clubs and innovation."
+        },
+        {
+          title: "Dubai's Energy Future",
+          path: "/energy-future",
+          color: "from-purple-500 to-indigo-500",
+          bgColor: "bg-purple-50",
+          description: "Learn what’s next, including hydrogen, batteries, and your role."
+        }
+      ];
+
+      return (
+        React.createElement("div", {className: "min-h-screen"},
+          React.createElement("header", {className: "text-center py-10"},
+            React.createElement("div", {className: "inline-block px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full text-sm font-medium mb-6"}, "Year 10 Science Project"),
+            React.createElement("h1", {className: "text-5xl font-bold text-gray-900 mb-4 leading-tight"}, "Dubai's Journey to ",
+              React.createElement("span", {className: "bg-gradient-to-r from-amber-600 via-orange-500 to-yellow-500 bg-clip-text text-transparent"}, "Renewable Energy")
+            ),
+            React.createElement("p", {className: "text-lg text-gray-600 max-w-2xl mx-auto"}, "Explore how Dubai is moving from fossil fuels to a clean energy future.")
+          ),
+          React.createElement("main", {className: "max-w-3xl mx-auto pb-16 px-6"},
+            React.createElement("section", {className: "grid grid-cols-1 md:grid-cols-2 gap-8 mt-12"},
+              sections.map(section =>
+                React.createElement(Link, {to: section.path, key: section.title, className: "block h-full"},
+                  React.createElement("div", {className: `rounded-2xl shadow-lg p-6 mb-4 border-0 ${section.bgColor} hover:shadow-2xl transition`},
+                    React.createElement("h2", {className: "text-2xl font-bold mb-2"}, section.title),
+                    React.createElement("p", {className: "text-gray-700 mb-2"}, section.description),
+                    React.createElement("div", {className: `h-1 bg-gradient-to-r ${section.color} rounded-full`})
+                  )
+                )
+              )
+            ),
+            React.createElement("div", {className: "mt-12 text-center text-gray-400 text-sm"},
+              React.createElement("p", null, "Dubai College | Educational Project | 2025")
+            )
+          )
+        )
+      );
+    }
+
+    function BackHomeBtn(){
+      const history = useHistory();
+      return React.createElement("div", {className:"mt-12 text-center"},
+        React.createElement("button", {
+          className: "inline-block px-6 py-3 rounded-full bg-gray-200 text-gray-900 hover:bg-gray-300 font-semibold shadow",
+          onClick: () => history.push("/")
+        }, "← Back to Home")
+      );
+    }
+
+    function OldEnergyProblems() {
+      return (
+        React.createElement("div", {className: "min-h-screen bg-red-50 py-16 px-4 md:px-16"},
+          React.createElement("h1", {className: "text-3xl font-bold mb-5 flex items-center"}, React.createElement("span", {className:"mr-2"},"🔥"), "The Problem with Old Energy"),
+          React.createElement("p", null, "For decades, Dubai relied on fossil fuels—mainly natural gas and oil—to generate electricity and desalinate water. These fuels are non-renewable, formed over millions of years but consumed rapidly. Their combustion releases carbon dioxide (CO₂), the leading greenhouse gas driving global warming and extreme weather."),
+          React.createElement("ul", {className: "list-disc ml-8 mt-4 mb-6"},
+            React.createElement("li", null, "Fossil fuel combustion contributes to air pollution, increasing respiratory illnesses like asthma and heat-related stress, especially during Dubai’s hot summers."),
+            React.createElement("li", null, "Fossil fuel reserves are finite. As supplies shrink and demand grows, energy prices rise—impacting household DEWA bills."),
+            React.createElement("li", null, React.createElement("b", null, "Physics Insight:"), " Conventional thermal power plants convert only ~40% of fuel energy into electricity; the remaining ~60% is lost as waste heat due to thermodynamic limits (Carnot efficiency)."),
+            React.createElement("li", null, "Waste heat and emissions from fossil plants intensify Dubai’s urban heat island effect, raising local temperatures and environmental risks.")
+          ),
+          React.createElement("p", null, React.createElement("b", null,"Why Change?"),
+            React.createElement("br"), 
+            "Dubai’s Clean Energy Strategy 2050 aims to reduce emissions, stabilize energy costs, and transition to sustainable sources like solar and hydrogen."
+          ),
+          React.createElement("div", {className:"my-6 p-4 bg-white rounded-xl shadow"},
+            React.createElement("b", null, "Key Fact: "),
+            React.createElement("span", {className:"text-amber-600 font-bold"}, "Dubai is targeting 75% clean energy by 2050"),
+            ", driven by innovation, smart infrastructure, and community leadership."
+          ),
+          React.createElement(BackHomeBtn)
+        )
+      );
+    }
+
+    function SolarPhysics() {
+      return (
+        React.createElement("div", {className: "min-h-screen bg-yellow-50 py-16 px-4 md:px-16"},
+          React.createElement("h1", {className: "text-3xl font-bold mb-5 flex items-center"}, React.createElement("span", {className:"mr-2"},"⚡"), "The Physics of Solar Power"),
+          React.createElement("p", null, "Solar panels operate via the ", React.createElement("b",null,"photovoltaic effect"), ", a quantum physics process where photons from sunlight excite electrons in silicon atoms, generating direct current (DC) electricity. This DC is converted to AC via inverters to power homes. No combustion, no moving parts, and minimal energy loss."),
+          
+          React.createElement("h3", {className:"font-semibold mt-6 mb-2"}, "Resource Comparison Table"),
+          React.createElement("table", {className:"w-full mb-2 bg-white shadow rounded text-xs"},
+            React.createElement("thead", {},
+              React.createElement("tr", {},
+                React.createElement("th", null,"Resource"),
+                React.createElement("th", null,"Renewable?"),
+                React.createElement("th", null,"Advantages"),
+                React.createElement("th", null,"Disadvantages/Notes")
+              )
+            ),
+            React.createElement("tbody", {},
+              React.createElement("tr", {}, 
+                React.createElement("td", null, "Solar PV"),
+                React.createElement("td", null, "Yes"),
+                React.createElement("td", null, "Dubai receives ~2,200 kWh/m²/year"),
+                React.createElement("td", null, "Needs clear skies, rooftop space")
+              ),
+              React.createElement("tr", {}, 
+                React.createElement("td", null, "Wind"),
+                React.createElement("td", null, "Yes"),
+                React.createElement("td", null, "Clean, cost-effective"),
+                React.createElement("td", null, "Low wind inland, better on coast")
+              ),
+              React.createElement("tr", {}, 
+                React.createElement("td", null, "Hydrogen"),
+                React.createElement("td", null, "Yes"),
+                React.createElement("td", null, "Clean for transport/industry"),
+                React.createElement("td", null, "Costly, early-stage in Dubai")
+              ),
+              React.createElement("tr", {}, 
+                React.createElement("td", null, "Oil/Gas"),
+                React.createElement("td", null, "No"),
+                React.createElement("td", null, "Reliable, high output"),
+                React.createElement("td", null, "Pollutes, finite supply")
+              )
+            )
+          ),
+          React.createElement("ul", {className:"list-disc ml-8 mt-4 mb-2"},
+            React.createElement("li", null, React.createElement("b",null,"Climate Advantage:")," Dubai receives ~2,200 kWh/m²/year of solar irradiance—among the highest globally. That’s enough to boil 22,000 liters of water per sqm annually!"),
+            React.createElement("li", null, React.createElement("b",null,"Physics Efficiency:")," Modern solar panels convert ~20% of sunlight into electricity. Each sqm in Dubai generates ~440 kWh/year."),
+            React.createElement("li", null, 
+              React.createElement("b",null,"Output Calculation:"),
+              " A 5kW system (25m², 20% efficiency) in Dubai generates ~10,000 kWh/year—enough to power a typical household."
+            ),
+            React.createElement("li", null, 
+              React.createElement("b", null, "Seasonal output per kW installed:"),
+              " Summer: 7.42 kWh/day | Autumn: 5.74 kWh/day | Winter: 4.78 kWh/day | Spring: 7.28 kWh/day"
+            )
+          ),
+          React.createElement("div", {className:"bg-white rounded-xl p-4 my-4 shadow"},
+            React.createElement("b",null,"Fact:"),
+            " Mohammed bin Rashid Solar Park will reach ",
+            React.createElement("span",{className:"text-yellow-700 font-bold"},"7,260 MW"),
+            " capacity by 2030, generating electricity for ",
+            React.createElement("span",{className:"text-emerald-800 font-bold"},"500,000 homes"),
+            " and saving ",
+            React.createElement("span",{className:"text-red-500 font-bold"},"8 million tonnes of CO₂ annually"),
+            "."
+          ),
+          React.createElement(BackHomeBtn)
+        )
+      );
+    }
+
+    function SuccessStories() {
+      return (
+        React.createElement("div", {className: "min-h-screen bg-green-50 py-16 px-4 md:px-16"},
+          React.createElement("h1", {className: "text-3xl font-bold mb-5 flex items-center"}, React.createElement("span", {className:"mr-2"},"🌞"), "Dubai’s Success Stories"),
+          React.createElement("ul", {className:"list-disc ml-8 mb-2"},
+            React.createElement("li", null, 
+              React.createElement("b", null, "MBR Solar Park"),
+              ": Largest single-site solar park in the world (Seih Al-Dahal, 50km south of Dubai). Target: 7,260 MW by 2030, 3,000+ MW in 2025. Saves 8M tonnes CO₂/year (removes 1.7M cars). Combines PV & CSP. Molten salt for night energy."
+            ),
+            React.createElement("li", null, 
+              React.createElement("b", null, "Shams Dubai Rooftop Solar"),
+              ": Over 8,400 buildings with solar since 2015. Jumeirah villa cut DEWA by AED 850/month. 500 GWh+ total, 300,000 tonnes CO₂ offset."
+            ),
+            React.createElement("li", null, 
+              React.createElement("b", null, "DEWA Smart Initiatives"),
+              ": Bill calculators, solar feasibility apps, dashboards. Install permits in ",
+              React.createElement("b",null,"<2 days"),
+              ". Connected to smart grid."
+            )
+          ),
+          React.createElement("ul", {className:"list-disc ml-8 my-2"},
+            React.createElement("li", null, "Each new panel replaces fossil fuels, cuts bills, improves air quality."),
+            React.createElement("li", null, "Dubai has won United Nations and IRENA awards for urban sustainability.")
+          ),
+          React.createElement(BackHomeBtn)
+        )
+      );
+    }
+
+    function StudentsLeadingChange() {
+      return (
+        React.createElement("div", {className: "min-h-screen bg-blue-50 py-16 px-4 md:px-16"},
+          React.createElement("h1", {className: "text-3xl font-bold mb-5 flex items-center"}, React.createElement("span", {className:"mr-2"},"🧑‍🔬"), "Students & Schools Leading Change"),
+          React.createElement("ul", {className: "list-disc ml-8 mb-2"},
+            React.createElement("li", null, "Launch eco-clubs: Use smart meters, DEWA dashboards, promote upgrades."),
+            React.createElement("li", null, "Share solar savings: Present bill savings with DEWA calculators."),
+            React.createElement("li", null, "Model Solar Physics: Use interactive tools to estimate school output."),
+            React.createElement("li", null, "Innovation Contests: Join city-wide competitions—get featured at Green Week and Expo."),
+            React.createElement("li", null, "Present Energy Audits: Assemblies with LED, solar heater, and rooftop panel recommendations.")
+          ),
+          React.createElement("ul", {className:"list-disc ml-8 my-2"},
+            React.createElement("li", null, 
+              React.createElement("b",null,"GEMS Solar Initiative:"),
+              " 23 schools, 21.25 GWh/year (2,000 homes), 14,276 tonnes CO₂ cut/year, 3,300 cars removed, 6M trees planted."
+            ),
+            React.createElement("li", null, "Climate literacy: GEMS science = hands-on solar projects."),
+            React.createElement("li", null, "Every ambassador helps Dubai toward 75% clean energy by 2050 and UAE’s Net Zero goal.")
+          ),
+          React.createElement(BackHomeBtn)
+        )
+      );
+    }
+
+    function EnergyFuture() {
+      return (
+        React.createElement("div", {className: "min-h-screen bg-purple-50 py-16 px-4 md:px-16"},
+          React.createElement("h1", {className: "text-3xl font-bold mb-5 flex items-center"}, React.createElement("span", {className:"mr-2"},"🚀"), "Dubai's Energy Future"),
+          React.createElement("ul", {className: "list-disc ml-8 mb-4"},
+            React.createElement("li", null, React.createElement("b",null,"Solar Goal:")," 7,260 MW by 2030—already halfway to 75% clean energy by 2050."),
+            React.createElement("li", null, React.createElement("b",null,"Battery Storage:")," Enables nighttime solar use."),
+            React.createElement("li", null, React.createElement("b",null,"Hydrogen Innovation:")," Next-gen transport and industry."),
+            React.createElement("li", null, React.createElement("b",null,"Your Role:")," Every student, rooftop, idea accelerates the journey.")
+          ),
+          React.createElement("div", {className:"bg-white rounded-xl p-4 my-4 shadow"},
+            React.createElement("b",null,"Key Resources:"),
+            React.createElement("ul", {className:"ml-8 mt-2"},
+              React.createElement("li", null, React.createElement("a", {href:"https://www.dewa.gov.ae/",className:"text-blue-700 underline",target:"_blank"},"DEWA")),
+              React.createElement("li", null, React.createElement("a", {href:"https://www.dewa.gov.ae/en/customer/innovation/smart-initiatives/shams-dubai",className:"text-blue-700 underline",target:"_blank"},"Shams Dubai")),
+              React.createElement("li", null, React.createElement("a", {href:"https://www.mbrsic.ae/en/about/mohammed-bin-rashid-al-maktoum-solar-park/",className:"text-blue-700 underline",target:"_blank"},"MBR Solar Park"))
+            )
+          ),
+          React.createElement("p", {className:"mt-8 text-xl text-purple-700 font-semibold"}, "Be part of Dubai’s energy revolution—every home, every school, every student counts!"),
+          React.createElement("p", {className:"mt-5 text-xs text-gray-500"}, "This email has been sent from a student at Dubai College."),
+          React.createElement(BackHomeBtn)
+        )
+      );
+    }
+
+    function App() {
+      return (
+        React.createElement(HashRouter, null,
+          React.createElement(Switch, null,
+            React.createElement(Route, {exact:true, path:"/", component:Home}),
+            React.createElement(Route, {path:"/old-energy-problems", component:OldEnergyProblems}),
+            React.createElement(Route, {path:"/solar-physics", component:SolarPhysics}),
+            React.createElement(Route, {path:"/success-stories", component:SuccessStories}),
+            React.createElement(Route, {path:"/students-leading-change", component:StudentsLeadingChange}),
+            React.createElement(Route, {path:"/energy-future", component:EnergyFuture})
+          )
+        )
+      );
+    }
+
+    ReactDOM.render(
+      React.createElement(App, null), document.getElementById("root")
+    );
+  </script>
+</body>
+</html>
